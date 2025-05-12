@@ -6,7 +6,7 @@ function HeaderNav() {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 
           <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="{{asset('img/DM-logo.png')}}" className="h-8 rounded-full" alt="dm-logo" />
+            <img src={'./src/assets/img/DM-logo.png'} className="h-8 rounded-full" alt="dm-logo" />
           </Link>
 
           <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
@@ -14,11 +14,6 @@ function HeaderNav() {
               <li>
                 <Link to="/" className="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">Home</Link>
               </li>
-
-              <li>
-                <Link to="#" className="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">Services</Link>
-              </li>
-
             </ul>
           </div>
         </div>

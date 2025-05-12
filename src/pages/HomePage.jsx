@@ -12,7 +12,6 @@ function HomePage() {
             {films?.map(film =>
               <Link to={`film/${film.id}`} key={film.id} >
                 <img className="h-[150px] w-[150px] m-4 object-cover hover:scale-125 transition-transform duration-300 " src={film.image} alt="image-film" />
-                <p className="text-white font-bold"> {film.title_film}</p>
               </Link>
             )}
           </div>

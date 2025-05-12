@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import { useEffect } from "react"
 
 function ShowPage() {
-  const { film, setFilm, getId } = useGlobalContext()
+  const { film, getId } = useGlobalContext()
   const { id } = useParams()
 
   useEffect(() => {
@@ -14,47 +14,46 @@ function ShowPage() {
     <>
       <div class="bg-black min-h-screen">
         <div class="mx-auto container text-center">
-          <h4 class="mb-4 text-4xl font-extrabold leading-none tracking-tigh md:text-3xl lg:text-5xl text-white pt-6">Ecco il film appena aggiunto da te</h4>
+          <h5 class="mb-4 text-3xl font-bold leading-none tracking-tigh md:text-3xl lg:text-5xl text-white pt-6">Ecco il film appena aggiunto da te</h5>
+          <h5 class="font-bold text-4xl mb-2 text-white">{film.title_film}</h5>
+          <div class="container max-w-4xl mx-auto p-4 sm:grid sm:grid-cols-2 sm:gap-6">
+
+            <div>
+              <img class="object-cover w-full" src={film.image} alt="" />
+            </div>
+
+            <div class="text-white">
+              <table class="table-auto">
+                <tbody>
+                  <tr class="border-b">
+                    <td class="font-semibold py-2 px-4">Trama</td>
+                    <td class="py-2 px-4">{film.plot}</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="font-semibold py-2 px-4">Anno</td>
+                    <td class="py-2 px-4">{film.year}</td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td class="font-semibold py-2 px-4">Durata</td>
+                    <td class="py-2 px-4">{film.duration}</td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td class="font-semibold py-2 px-4">Genere</td>
+                    <td class="py-2 px-4">
+                      {film.genres?.map(genre => genre.title_genre).join(', ')}
+                    </td>
+                  </tr>
 
 
-          <div class="flex flex-col items-center text-white border border-gray-200 rounded-lg shadow-sm md:flex-row md:max-w-x">
-            <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={film.image} alt="" />
-            <div class="p-4 leading-normal">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{film.title_film}</h5>
-
-              <div class="flex">
-                <p class="mb-3 text-white font-bold mr-3">Trama: </p>
-                <p>
-                  {film.plot}
-                </p>
-              </div>
-
-              <div class="flex">
-                <p class="mb-3 text-white font-bold mr-3">year: </p>
-                <p>
-                  {film.year}
-                </p>
-              </div>
-
-              <div class="flex">
-                <p class="mb-3 text-white font-bold mr-3">Duration: </p>
-                <p>
-                  {film.duration}
-                </p>
-              </div>
-
-              <div class="flex">
-                <p class="mb-3 text-white font-bold mr-3">Genre: </p>
-                {film.genre?.map(genre => {
-                  <p> {genre.title_genre} </p>
-                })}
-              </div>
-
+                </tbody>
+              </table>
             </div>
           </div>
-
         </div>
-      </div></>
+      </div>
+    </>
   )
 }
 
